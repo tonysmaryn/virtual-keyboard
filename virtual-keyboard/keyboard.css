@@ -1,7 +1,7 @@
 .keyboard {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: -100%;
   width: 100%;
   padding: 5px 0;
   background: #004134;
@@ -11,7 +11,7 @@
 }
 
 .keyboard_visible {
-  bottom: -100%;
+  bottom: 0;
 }
 
 .keyboard__keys {
@@ -67,30 +67,55 @@
 }
 
 .keyboard__key_dark {
-    background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.25);
 }
 
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-  
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-  
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-  
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+textarea {
+  font-size: 20px;
+  min-width: 100%;
+  height: 50vh;
+  padding: 2%;
+  border: 1px solid #d5d5d5;
+  outline: none;
+  background-color: #e5e5e5;
+}
+
+.keyboard__toggle {
+  position: fixed;
+  right: 0;
+  transition: top 0.2s;
+}
+
+.keyboard__toggle_active {
+  top: 50rem;
+}
+
+@media (max-width: 875px) {
+  .keyboard__key {
+    width: 6%;
+    max-width: 130px;
   }
+
+  .keyboard__key_wide {
+    width: 6%;
+  }
+
+  .keyboard__key_extra-wide {
+    width: 100%;
+    max-width: 355px;
+  }
+
+  .keyboard__key_activatable::after {
+    content: " ";
+    top: 3px;
+    right: 3px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+  }
+  .keyboard__key_active::after {
+    background: #00ff00;
+  }
+}
